@@ -4,7 +4,7 @@ padding: 0;
 box-sizing: border-box;
 }
 
-body {
+body, input, textarea{
 font-family: "Roboto", sans-serif;
 }
 
@@ -23,8 +23,9 @@ background-color: #182c61;
 color: #ecf0f1;
 }
 
-header, section h2 {
+header, section h2, .contact-methods h3, form button {
 font-family: "Bungee", sans-serif;
+font-weight: normal;
 }
 
 header .container {
@@ -123,4 +124,65 @@ section .container {
 .store-front {
     max-width: 100%; /* imagem ocupa 100% */
 }
+}
+
+.social-links img{
+    height:24px;
+}
+
+.contact-methods {
+    display: flex; /*alinha na horizontal*/
+    justify-content: space-between; /*espaçamento entre os elementos*/
+}
+
+.social-links li{
+    display: inline; /*alinha na horizontal*/
+    margin-right:8px; /*espaçamento entre os ícones*/
+}
+
+.social-links li a {
+    text-decoration: none;
+}
+
+#contact .container {
+    display: block; /*faz esse elemento se comportar como “bloco”*/
+}
+
+form input, form textarea, form button {
+    display: block;
+    width: 320px;
+    margin-bottom: 8px; /*espaçamento entre os elementos do formulário*/
+    padding: 8px; /*espaçamento interno*/
+}
+form textarea {
+    resize: none; /*impede o redimensionamento do campo de texto*/
+    height:180px; /*altura do campo de texto*/
+}
+
+.contact-methods h3 {
+    color: #182c61;
+    margin-bottom: 16px;
+}
+
+form button {
+    background-color: #182c61; /*cor de fundo do botão*/
+    color: #ecf0f1; /*cor do texto do botão*/
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #435ca2; /*cor de fundo do botão ao passar o mouse*/
+}
+
+input:focus, textarea:focus {
+    outline:1px solid #182c61; /*cor da borda ao focar no campo*/
+}
+
+footer {
+    background-color: #182c61;
+    color: #ecf0f1;
+    padding: 16px 0; /*espaçamento interno*/
+    text-align: center; /*centraliza o texto*/
+    font-size: 14px;
 }
