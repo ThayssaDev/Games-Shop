@@ -105,35 +105,71 @@ width: auto;
 display: block;
 }
 
-/* MOBILE */
-@media (max-width: 768px) /*@media significa que quando a largura da tela for 768px faça.. */{
-header .container {
-    flex-direction: column;
-    align-items: flex-start;
+.contact-methods {
+    display: flex; /*alinha na horizontal*/
+    justify-content: space-between; /*espaçamento entre os elementos*/
 }
 
-header nav li {
-    margin-left: 0;
-    margin-right: 16px;
+/* ========== MOBILE ========== */
+/* 
+    @media = "aplique este bloco de CSS somente quando..."
+    (max-width: 768px) = quando a largura da tela for 768px OU MENOR
+    */
+    @media (max-width: 768px) {
+
+    /* 
+        header .container é o "pai" que está em flex (normalmente em linha no desktop).
+        No mobile, colocamos em coluna para o título ficar em cima e o menu embaixo.
+    */
+    header .container {
+        flex-direction: column;   /* muda de linha (row) para coluna (column) */
+        align-items: flex-start;  /* alinha os itens à esquerda */
+    }
+
+    /*
+        header nav li são os <li> do menu no topo.
+        No desktop você tinha margin-left para separar os itens.
+        No mobile, tiramos margin-left e usamos margin-right pra espaçar.
+    */
+    header nav li {
+        margin-left: 0;          /* remove espaçamento da esquerda */
+        margin-right: 16px;      /* adiciona espaçamento à direita */
+    }
+
+    /*
+        section .container também é flex (imagem + texto lado a lado no desktop).
+        No mobile, empilhamos (imagem em cima, texto embaixo).
+    */
+    section .container {
+        flex-direction: column;  /* empilha os elementos */
+    }
+
+    /*
+        .store-front é a imagem da fachada.
+        No desktop ela estava com max-width: 50% (por exemplo).
+        No mobile queremos ela ocupando toda a largura disponível.
+    */
+    .store-front {
+        max-width: 100%;         /* imagem pode ocupar 100% da largura */
+        width: 100%;             /* garante que ela realmente use a largura */
+        height: auto;            /* mantém a proporção (não distorce) */
+    }
+
+    /*
+        No contato, você tem 3 colunas lado a lado (flex).
+        No mobile, fica melhor empilhar elas.
+    */
+    .contact-methods {
+        flex-direction: column;  /* empilha as colunas do contato */
+        gap: 24px;               /* espaço entre os blocos */
+    }
 }
 
-section .container {
-    flex-direction: column; /* empilha */
-}
-
-.store-front {
-    max-width: 100%; /* imagem ocupa 100% */
-}
-}
 
 .social-links img{
     height:24px;
 }
 
-.contact-methods {
-    display: flex; /*alinha na horizontal*/
-    justify-content: space-between; /*espaçamento entre os elementos*/
-}
 
 .social-links li{
     display: inline; /*alinha na horizontal*/
@@ -184,5 +220,5 @@ footer {
     color: #ecf0f1;
     padding: 16px 0; /*espaçamento interno*/
     text-align: center; /*centraliza o texto*/
-    font-size: 14px;
+    font-size: 14px; /*tamanho da fonte*/
 }
